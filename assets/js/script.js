@@ -7,11 +7,10 @@
 
 
 
-var lower = 'abcdefghijklmnopqrstuvwxyz'
-var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' 
-var numbers = '0123456789'
+var lower = 'abcdefghijklmnopqrstuvwxyz';
+var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var numbers = '0123456789';
 var characters = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-
 
 function generatePassword(plength) {
   var plength = window.prompt('input desired password length');
@@ -25,29 +24,47 @@ function generatePassword(plength) {
       if (plength >= 8 && plength <= 128)
         {
         console.log(plength);
+        var lowercase = window.confirm('Would you like to include lowercase');
+        if (lowercase) {
+          lower = (true);
+          console.log(true);
+        } else {
+          lower = (false);
+          console.log(false);
         }
+        var uppercase = window.confirm('Would you like to include Uppercase');
+        if (uppercase) {
+          upper = (true);
+          console.log(true);
+        } else {
+          upper = (false);
+          console.log(false);
+        }
+        var numeric = window.confirm('Would you like to include numbers');
+        if (numeric) {
+          numbers = (true);
+          console.log(true);
+        } else {
+          numbers = (false);
+          console.log(false);
+        }
+        var special = window.confirm('Would you like to include Special Charcters');
+        if (special) {
+          characters = (true);
+          console.log(true);
+        } else {
+          characters = (false);
+          console.log(false);
+        }
+      }
     }
+    // return variable of generated password here
+    return "Password goes here";
+  }
+
+  
   
 
-
-  //var lowercase = window.prompt('Would you like to include lowercase');
-  //var uppercase = window.prompt('Would you like to include Uppercase');
-  //var numeric = window.prompt('Would you like to include numbers');
-  //var special = window.prompt('Would you like to include Special Charcters');
-  
-
-
-
-
-
-
-
-
-
-
-// return variable of generated password here
-  return "Password goes here";
-}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
