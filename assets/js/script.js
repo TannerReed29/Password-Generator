@@ -6,63 +6,64 @@
 // 3. Generate passsword based on validated criteria
 
 
+var criteria = []; 
 
-var lower = 'abcdefghijklmnopqrstuvwxyz';
-var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var numbers = '0123456789';
-var characters = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+var lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+var characters = ['"', '!', '#', '$', '%', '&', '(', ')', '*', '+', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~'];
 
-function generatePassword(plength) {
-  var plength = window.prompt('input desired password length');
-  plength = parseInt(plength);
+
+function generatePassword() {
+
+  criteria = [];
+
+  var plength = parseInt(window.prompt('Input a desired password length between 8 - 128'));
   if (isNaN(plength))
     {
     alert("input is not a number");
     }
   else
     {
-      if (plength >= 8 && plength <= 128)
+      if (plength >= 8 || plength <= 128)
         {
         console.log(plength);
         var lowercase = window.confirm('Would you like to include lowercase');
         if (lowercase) {
-          lower = (true);
+          criteria = criteria.concat(lower);
           console.log(true);
         } else {
-          lower = (false);
           console.log(false);
         }
         var uppercase = window.confirm('Would you like to include Uppercase');
         if (uppercase) {
-          upper = (true);
+          criteria = criteria.concat(upper);
           console.log(true);
         } else {
-          upper = (false);
           console.log(false);
         }
         var numeric = window.confirm('Would you like to include numbers');
         if (numeric) {
-          numbers = (true);
+          criteria = criteria.concat(numbers);
           console.log(true);
         } else {
-          numbers = (false);
           console.log(false);
         }
         var special = window.confirm('Would you like to include Special Charcters');
         if (special) {
-          characters = (true);
+          criteria = criteria.concat(characters);
           console.log(true);
         } else {
-          characters = (false);
           console.log(false);
         }
       }
     }
-    // return variable of generated password here
-    return "Password goes here";
-  }
 
+        // return variable of generated password here
+        return "password goes here!";
+  }
   
+
   
 
 
