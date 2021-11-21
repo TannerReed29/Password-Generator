@@ -1,11 +1,4 @@
 // Assignment code here
-// 1. Prompt user for password criteria
-//   . password length 8-128
-//   . lowercase uppercase numeric special characters
-// 2. Validate the input of criteria
-// 3. Generate passsword based on validated criteria
-
-
 var criteria = []; 
 
 var lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
@@ -15,9 +8,9 @@ var characters = ['"', '!', '#', '$', '%', '&', '(', ')', '*', '+', '-', '.', '/
 
 
 function generatePassword() {
-
+  // clear criteria 
   criteria = [];
-
+  // Prompt user for password length | notify user if input is wrong
   var plength = parseInt(window.prompt('Input a desired password length between 8 - 128'));
   if (isNaN(plength))
     {
@@ -33,34 +26,29 @@ function generatePassword() {
             return null
       }
     }
-    
-    var lowercase = window.confirm('Would you like to include lowercase');
+
+    // Confirm if user wants lowercase 
+    var lowercase = window.confirm('Would you like to include Lowercase?');
     if (lowercase) {
       criteria = criteria.concat(lower);
-      console.log(true);
-    } else {
-      console.log(false);
     }
-    var uppercase = window.confirm('Would you like to include Uppercase');
+
+    // Confirm if user wants lowercase
+    var uppercase = window.confirm('Would you like to include Uppercase?');
     if (uppercase) {
       criteria = criteria.concat(upper);
-      console.log(true);
-    } else {
-      console.log(false);
     }
-    var numeric = window.confirm('Would you like to include numbers');
+
+    // Confirm if user wants numbers
+    var numeric = window.confirm('Would you like to include Numbers?');
     if (numeric) {
       criteria = criteria.concat(numbers);
-      console.log(true);
-    } else {
-      console.log(false);
     }
-    var special = window.confirm('Would you like to include Special Charcters');
+
+    // Confirm if user wants special characters
+    var special = window.confirm('Would you like to include Special Charcters?');
     if (special) {
       criteria = criteria.concat(characters);
-      console.log(true);
-    } else {
-      console.log(false);
     }
 
     // password is generated here based on chosen criteria
