@@ -15,6 +15,7 @@ function generatePassword() {
   if (isNaN(plength))
     {
     alert("Input is not a number");
+    return null
     }
   else
     {
